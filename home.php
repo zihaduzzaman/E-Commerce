@@ -19,6 +19,25 @@
     #carticon{
       cursor: pointer;
     }
+    .nav-itemm {
+      display: flex;
+    }
+    .cart-icon {
+    font-size: 32px !important;
+    color: #fff !important;
+    } 
+
+
+    .nav-itemm span{
+      display: flex;
+      width: 30px;
+      height: 30px;
+      background-color: #23aae2;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      border-radius: 50%;
+    }
   
     
     .section {
@@ -328,18 +347,33 @@
     justify-content: center;
     order: 2;
 }
-.cart-section{
+.cart-section {
   width: 400px;
-  left: 0;
+  height: 100vh;
   background-color: #02143a;
   color: #eee;
   position: fixed;
-  inset: 0 0 0 auto;
-  display: none;
+  top: 0;
+  right: 0;
+  display: grid;
   grid-template-rows: 70px 1fr 70px;
   z-index: 10;
 
+  /* ডান পাশে লুকানো অবস্থায় সরানো */
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+  pointer-events: none; /* হাইড অবস্থায় ক্লিক ব্লক */
+  opacity: 0;
 }
+
+.cart-section.active {
+  transform: translateX(0); /* স্ক্রিনে দেখা যাবে */
+  pointer-events: auto;
+  opacity: 1;
+}
+
+
+
 .cart-section .item{
 border: 1px solid #ccc;
 border-radius: 15px;
@@ -453,9 +487,9 @@ border-radius: 15px;
       <!-- Menu Items -->
       <div class="col-lg-4 d-none d-lg-flex justify-content-end">
         <div class="d-flex align-items-center">
-          <div class="nav-item">
-            <i id="carticon" class="bi bi-cart cart-icon text-danger fs-5"></i><br>
-            Cart <br><small>Your Product</small>
+          <div class="nav-itemm">
+            <a href=""><i id="cartToggle" class="bi bi-cart cart-icon text-danger fs-5"></i></a>
+            <span>0</span>
           </div>
         
           <div class="nav-item">
@@ -747,31 +781,48 @@ try {
 
 </div>
 <script>
-  let cartItem = document.getElementById("carticon");
-  let cartSection = document.getElementById("cartSection");
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleCartBtn = document.getElementById("cartToggle");
+  const cartSection = document.getElementById("cartSection");
+  const closeCartBtn = document.querySelector(".cart-section .buttn button:first-child");
 
-  cartItem.addEventListener("click", () => {
-    if (cartSection.style.display === "block") {
-      cartSection.style.display = "none";
-    } else {
-      cartSection.style.display = "block";
-    }
+  // Toggle cart visibility
+  toggleCartBtn.addEventListener("click", function(e) {
+    e.preventDefault(); // Prevent default anchor behavior
+    e.stopPropagation(); // Stop event bubbling
+    cartSection.classList.toggle("active");
   });
 
-      document.addEventListener("DOMContentLoaded", function () {
-      const cartButton = document.getElementById("buttn");
+  // Close cart when clicking the close button
+  closeCartBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    cartSection.classList.remove("active");
+  });
 
-      // Fix the position dynamically
-      cartButton.style.position = "fixed";
-      cartButton.style.bottom = "0";
-      cartButton.style.right = "0";
-      cartButton.style.width = "400px";
-      cartButton.style.display = "grid";
-      cartButton.style.gridTemplate Columns = "repeat(2, 1fr)";
-      cartButton.style.padding = "15px";
-      cartButton.style.gap = "10px";
-    });
+  // Close cart when clicking outside
+  document.addEventListener("click", function(e) {
+    if (!cartSection.contains(e.target) && e.target !== toggleCartBtn) {
+      cartSection.classList.remove("active");
+    }
+  });
+});
 
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const cartButton = document.getElementById("buttn");
+
+  // Fix the position dynamically
+  cartButton.style.position = "fixed";
+  cartButton.style.bottom = "0";
+
+  cartButton.style.width = "400px";
+  cartButton.style.display = "grid";
+  cartButton.style.gridTemplateColumns = "repeat(2, 1fr)";
+  cartButton.style.padding = "15px";
+  cartButton.style.gap = "10px";
+});
 
 
 
