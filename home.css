@@ -1,0 +1,134 @@
+.header {
+    background: linear-gradient(to right, #03325e, #01092d);
+    padding: 10px 150px;
+    color: white;
+  }
+  #subheader{
+        align-items: center;
+        justify-content: center;
+
+  }
+  .search-box {
+    position: relative;
+  }
+  
+  .search-box input {
+    padding: 8px 40px 8px 15px;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+  }
+  .search-box .bi-search {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333;
+    cursor: pointer;
+  }
+  @media (min-width: 992px) {
+    .col-lg-4.col-8 {
+            width: 500px;
+    }
+    }
+  .nav-item {
+    margin-left: 20px;
+    text-align: center;
+  }
+  .nav-item small {
+    font-size: 0.75rem;
+    color: #ccc;
+  }
+  @media (min-width: 992px) {
+    .col-lg-4 {
+        flex: 0 0 auto;
+        width: 15.333333%;
+    }
+}
+  .pc-builder-btn {
+    background: linear-gradient(to right, #4660ff, #4a88ff);
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  .logo img {
+    height: 45px;
+  }
+
+.carousel-item {
+    height: 80vh;
+  }
+  .carousel-inner{
+    height: 80vh;
+  }
+  .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(70%);
+  }
+    .carousel-caption {
+      position: absolute;
+      top: 58%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem; /* উপাদানগুলোর মাঝে ফাঁকা */
+    }
+  
+    .carousel-caption h5 {
+      font-size: 3rem;
+      font-weight: bold;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+  
+    .carousel-caption p {
+      font-size: 1.5rem;
+      text-shadow: 0 0 8px rgba(0,0,0,0.6);
+      max-width: 600px;  /* বেশি বড় না হয়ে সুন্দর দেখতে */
+    }
+  
+    .carousel-caption .btn {
+    font-size: 0.8rem;
+    padding: 0.35rem 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(38, 117, 255, 0.6);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    letter-spacing: 0.05em;
+    min-height: 40px;
+    min-width: 110px;
+    text-transform: uppercase;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .carousel-caption .btn:hover {
+    box-shadow: 0 6px 20px rgba(38, 117, 255, 0.9);
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+  }
+
+.product{
+    border: 1px solid grey;
+    /* padding: 2px; */
+    /* width: 98vw; */
+}
+
+
+
+
+
+
+
+
