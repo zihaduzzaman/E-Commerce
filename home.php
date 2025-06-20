@@ -727,36 +727,19 @@ try {
       <?php endif; ?>
     </div>
 
-    <button class="btn">দেখুন</button>
+    <button class="btn" id="view">দেখুন</button>
   </div>
 </div>
 
     <?php endforeach; ?>
   <?php else: ?>
-    <?php for($i=1; $i<=6; $i++): ?>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x200?text=Side+Product+<?php echo $i; ?>" alt="Side Product <?php echo $i; ?>">
-        <div class="content">
-          <h5>সাইড প্রোডাক্ট <?php echo $i; ?></h5>
-          <p>এটি সাইড প্রোডাক্টের সংক্ষিপ্ত বর্ণনা</p>
-          <div class="price">
-            <span class="current-price">৳<?php echo number_format(rand(800, 3000), 2); ?></span>
-            <span class="old-price">৳<?php echo number_format(rand(3500, 6000), 2); ?></span>
-          </div>
-          <button class="btn">দেখুন</button>
-        </div>
-      </div>
-    <?php endfor; ?>
-  <?php endif; ?>
-</div>
-</div>
 
 <div id="cartSection" class="cart-section">
   <div class="cart">
     <h3>Shopping Cart</h3>
   </div>
 
-  <div class="listcart">
+  <div class="listcart" id="listcart">
     <div class="item">
       <div class="image"><img src="show3.jpg" alt=""></div>
       <div class="name"><h4 style="font-size: 18px;">NAME</h4></div>
@@ -767,76 +750,19 @@ try {
         <span class="plus">&gt;</span>
       </div>
     </div>
+    <div class="foot">
+    <h3>Total</h3>
+    <h3 id="total">0.00</h3>
+  </div>
 
-    <!-- Repeat .item as needed -->
   </div>
 
   <div id="buttn" class="buttn">
     <button class="btns">CLOSE</button>
     <button class="btns">CHECK Out</button>
   </div>
-</div>
-
-
-
-</div>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const toggleCartBtn = document.getElementById("cartToggle");
-  const cartSection = document.getElementById("cartSection");
-  const closeCartBtn = document.querySelector(".cart-section .buttn button:first-child");
-
-  // Toggle cart visibility
-  toggleCartBtn.addEventListener("click", function(e) {
-    e.preventDefault(); // Prevent default anchor behavior
-    e.stopPropagation(); // Stop event bubbling
-    cartSection.classList.toggle("active");
-  });
-
-  // Close cart when clicking the close button
-  closeCartBtn.addEventListener("click", function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    cartSection.classList.remove("active");
-  });
-
-  // Close cart when clicking outside
-  document.addEventListener("click", function(e) {
-    if (!cartSection.contains(e.target) && e.target !== toggleCartBtn) {
-      cartSection.classList.remove("active");
-    }
-  });
-});
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  const cartButton = document.getElementById("buttn");
-
-  // Fix the position dynamically
-  cartButton.style.position = "fixed";
-  cartButton.style.bottom = "0";
-
-  cartButton.style.width = "400px";
-  cartButton.style.display = "grid";
-  cartButton.style.gridTemplateColumns = "repeat(2, 1fr)";
-  cartButton.style.padding = "15px";
-  cartButton.style.gap = "10px";
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-</script>
+</div></div>
+<script src="home.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
