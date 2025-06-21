@@ -56,8 +56,16 @@ if (isset($_POST['add'])) {
         </div>
 
         <div class="mb-3">
-        <input class="form-control" type="text" name="category" placeholder="Category" />
-        </div>
+          <select class="form-control" name="category" required>
+          <option value="" disabled selected>Select Category</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Fashion">Fashion</option>
+          <option value="Books">Books</option>
+          <option value="Home Appliances">Home Appliances</option>
+          <option value="Toys">Toys</option>
+          <option value="Sports">Sports</option>
+        </select>
+      </div>
 
         <!-- Submit Button -->
         <button type="submit" class="btn btn-primary" name="add">Add Product</button>
