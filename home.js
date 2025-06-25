@@ -143,3 +143,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// Catagory 
+function filterByCategory(category) {
+  if (category) {
+    window.location.href = "index.php?category=" + encodeURIComponent(category);
+  }
+}

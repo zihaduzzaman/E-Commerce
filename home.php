@@ -137,7 +137,7 @@ try {
     
     // মেইন প্রোডাক্ট (১৬টি)
     $main_products = [];
-    $sql = "SELECT p_name, r_price, o_price, `desc`, img_file FROM product $category_sql LIMIT 16";
+    $sql = "SELECT p_name, r_price, o_price, `desc`, img_file FROM product $category_sql LIMIT 12";
     $result = $conn->query($sql);
     if ($result && $result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
@@ -172,7 +172,12 @@ try {
 <div class="rightt-product-card">
   <div class="text-content">
     <h5><?php echo htmlspecialchars($product['p_name']); ?></h5>
-    <p><?php echo htmlspecialchars($product['desc']); ?></p>
+    <p>
+  <?php
+    $desc = htmlspecialchars($product['desc']);
+    echo strlen($desc) > 30 ? substr($desc, 0, 30) . '...' : $desc;
+  ?>
+</p>
     <div>
       <span class="current-price">৳<?php echo number_format($product['r_price'], 2); ?></span>
       <?php if($product['o_price'] > 0): ?>
@@ -219,7 +224,13 @@ try {
         
         <div class="content">
           <h5><?php echo htmlspecialchars($product['p_name']); ?></h5>
-          <p><?php echo htmlspecialchars($product['desc']); ?></p>
+          <p>
+            <?php
+              $desc = htmlspecialchars($product['desc']);
+              echo strlen($desc) > 30 ? substr($desc, 0, 30) . '...' : $desc;
+            ?>
+          </p>
+
           <div class="price">
             <span class="current-price">৳<?php echo number_format($product['r_price'], 2); ?></span>
             <?php if($product['o_price'] > 0): ?>
@@ -262,7 +273,13 @@ try {
   <!-- Product Content -->
   <div class="content">
     <h5><?php echo htmlspecialchars($product['p_name']); ?></h5>
-    <p><?php echo htmlspecialchars($product['desc']); ?></p>
+    <p>
+  <?php
+    $desc = htmlspecialchars($product['desc']);
+    echo strlen($desc) > 30 ? substr($desc, 0, 30) . '...' : $desc;
+  ?>
+</p>
+
 
     <div class="price">
       <span class="current-price">৳<?php echo number_format($product['r_price'], 2); ?></span>
