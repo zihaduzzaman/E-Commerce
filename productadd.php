@@ -56,16 +56,16 @@ if (isset($_POST['add'])) {
         </div>
 
         <div class="mb-3">
-          <select class="form-control" name="category" required>
-          <option value="" disabled selected>Select Category</option>
-          <option value="Electronics">Electronics</option>
-          <option value="Fashion">Fashion</option>
-          <option value="Books">Books</option>
-          <option value="Home Appliances">Home Appliances</option>
-          <option value="Toys">Toys</option>
-          <option value="Sports">Sports</option>
-        </select>
-      </div>
+          <select class="form-select form-control" name="category" id="categorySelect" onchange="filterByCategory(this.value)">
+            <option selected disabled>Select category</option>
+            <option value="Main Product">Main Product</option>
+            <option value="Side Product">Side Product</option>
+            <option value="Right Product">Right Product</option>
+          </select>
+        </div>
+
+
+
 
         <!-- Submit Button -->
         <button type="submit" class="btn btn-primary" name="add">Add Product</button>
